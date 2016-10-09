@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<link rel="stylesheet" href="js/bj-ace/ace.css" />-->
+		<link rel="stylesheet" href="js/bj-bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="src/bj-fontawesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="js/bj-datatables/dataTables.bootstrap.min.css" />
+		<link rel="stylesheet" href="js/common.css" />
+		
+		<link rel="stylesheet" href="js/tablechart-m.css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div class="row">
+			<nav class="navbar-default ">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="realtime版本2.html"><img  src="img/mm1.jpg" style="height:50px;margin-top:-15px;cursor:pointer;"/></a>
+				<div class="nav-header-title">沼气项目</div>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li ><a href="realtime版本2.html">实时工况</a></li>
+					<li ><a href="tablechart.html" style="border-bottom:2px solid salmon;">统计报表</a></li>
+					<li ><a href="realtime版本3.html">实时工况3</a></li>
+				</ul>
+			</div>
+		</nav>
+		</div>
+		<div class="container-fluid">
+			<div class="form-inline">
+				<div class="form-group">
+					<label>项目地址:</label>
+					<select class="form-control">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>起始时间:</label>
+					<span class="input-icon">
+						<input type="text" class="form-control"/>
+						<i class="fa fa-calendar bj-icon blue"></i>
+					</span>
+				</div>
+				<div class="form-group">
+					<label>结束时间:</label>
+					<span class="input-icon">
+						<input type="text" class="form-control"/>
+						<i class="fa fa-calendar bj-icon blue"></i>
+					</span>
+				</div>
+				<div class="form-group">
+					<button class="bj-btn-outline" type="button">查询</button>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div id="dt-narrow-wrap" style="">
+				<table id="dt-narrow" class="display compact table table-striped table-bordered" cellspacing="0" width="100%">
+				</table>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div id="linechart" style="width:100%;"></div>
+		</div>
+		<!--<script type="text/javascript" src="src/jquery-1.11.1.js" ></script>-->
+		<script type="text/javascript" src="src/jquery3.1.0-jQuery.js" ></script>
+		<!--<script type="text/javascript" src="js/bj-ace/ace.js" ></script>-->
+		<script type="text/javascript" src="js/bj-bootstrap/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/bj-datatables/jquery.dataTables.min.js" ></script>
+		<script type="text/javascript" src="js/bj-datatables/dataTables.bootstrap.min.js" ></script>
+		
+		<script type="text/javascript" src="js/bj-highcharts/highcharts.js" ></script>
+		
+		<script type="text/javascript" src="js/tablechart-m.js" ></script>
+	</body>
+</html>

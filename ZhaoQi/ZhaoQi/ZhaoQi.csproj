@@ -40,6 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -60,9 +64,6 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -70,9 +71,6 @@
     <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
       <Private>True</Private>
@@ -180,19 +178,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebApi\Controllers\RealDataController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -251,7 +246,76 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="js\bj-ace\fonts\fontawesome-webfont.eot" />
+    <Content Include="js\bj-ace\fonts\fontawesome-webfont.ttf" />
+    <Content Include="js\bj-ace\fonts\fontawesome-webfont.woff" />
+    <Content Include="js\bj-ace\fonts\fontawesome-webfont.woff2" />
+    <Content Include="js\bj-ace\fonts\FontAwesome.otf" />
+    <Content Include="js\bj-bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="js\bj-bootstrap\css\bootstrap.css.map" />
+    <Content Include="js\bj-bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="js\bj-bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="js\bj-bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="js\bj-bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="js\bj-highcharts\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="img\3.png" />
+    <Content Include="img\mm1.jpg" />
+    <Content Include="js\bj-ace\ace-elements.js" />
+    <Content Include="js\bj-ace\ace-extra.js" />
+    <Content Include="js\bj-ace\ace-rtl.css" />
+    <Content Include="js\bj-ace\ace-skins.css" />
+    <Content Include="js\bj-ace\ace.css" />
+    <Content Include="js\bj-ace\ace.js" />
+    <Content Include="js\bj-ace\analytics.js" />
+    <Content Include="js\bj-ace\bootstrap.css" />
+    <Content Include="js\bj-ace\bootstrap.js" />
+    <Content Include="js\bj-ace\font-awesome.css" />
+    <Content Include="js\bj-ace\fonts.css" />
+    <Content Include="js\bj-ace\fonts\fontawesome-webfont.svg" />
+    <Content Include="js\bj-ace\jquery-2.js" />
+    <Content Include="js\bj-ace\jquery-ui.css" />
+    <Content Include="js\bj-ace\jquery-ui.js" />
+    <Content Include="js\bj-ace\jquery.js" />
+    <Content Include="js\bj-ace\watch.js" />
+    <Content Include="js\bj-bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="js\bj-bootstrap\css\bootstrap.min.css" />
+    <Content Include="js\bj-bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="js\bj-bootstrap\js\bootstrap.min.js" />
+    <Content Include="js\bj-bootstrap\js\npm.js" />
+    <Content Include="js\bj-datatables\buttons.dataTables.min.css" />
+    <Content Include="js\bj-datatables\buttons.flash.js" />
+    <Content Include="js\bj-datatables\buttons.html5.js" />
+    <Content Include="js\bj-datatables\buttons.html5.min.js" />
+    <Content Include="js\bj-datatables\datatables-readme.txt" />
+    <Content Include="js\bj-datatables\dataTables.bootstrap.min.css" />
+    <Content Include="js\bj-datatables\dataTables.bootstrap.min.js" />
+    <Content Include="js\bj-datatables\dataTables.buttons.min.js" />
+    <Content Include="js\bj-datatables\datatablesAjAx销毁表格重新渲染.txt" />
+    <Content Include="js\bj-datatables\jquery.dataTables.css" />
+    <Content Include="js\bj-datatables\jquery.dataTables.min.js" />
+    <Content Include="js\bj-datatables\jszip.min.js" />
+    <Content Include="js\bj-datatables\prettify-dataTables-bj.css" />
+    <Content Include="js\bj-datatables\sort_asc.png" />
+    <Content Include="js\bj-datatables\sort_both.png" />
+    <Content Include="js\bj-datatables\sort_desc.png" />
+    <Content Include="js\bj-datatables\统计最大值，最小值，平均值.txt" />
+    <Content Include="js\bj-datatables\网址.txt" />
+    <Content Include="js\bj-highcharts\dark-unica.js" />
+    <Content Include="js\bj-highcharts\datatables-bb.js" />
+    <Content Include="js\bj-highcharts\datatables-bb报表和图表联动.js" />
+    <Content Include="js\bj-highcharts\highcharts-数据处理必读.txt" />
+    <Content Include="js\bj-highcharts\highcharts.js" />
+    <Content Include="js\bj-highcharts\把dataset处理成一列一列的Highcharts.html" />
+    <Content Include="js\bj-highcharts\把dataset处理成列-3ok的Highcharts.html" />
+    <Content Include="js\bj-snap.svg\readme.txt" />
+    <Content Include="js\bj-snap.svg\snap.svg-min.js" />
+    <Content Include="js\common.css" />
+    <Content Include="js\realtime-m.css" />
+    <Content Include="js\realtime-m.js" />
+    <Content Include="js\realtime3-m.js" />
+    <Content Include="js\tablechart-m.css" />
+    <Content Include="js\tablechart-m.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -266,6 +330,35 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="src\animate.css" />
+    <Content Include="src\balloon.css" />
+    <Content Include="src\bj-artTemplate\template-debug.js" />
+    <Content Include="src\bj-artTemplate\template-native-debug.js" />
+    <Content Include="src\bj-artTemplate\template-native.js" />
+    <Content Include="src\bj-artTemplate\template.js" />
+    <Content Include="src\bj-datetimepicker\datetimepicker-readme - bj.txt" />
+    <Content Include="src\bj-datetimepicker\jquery.datetimepicker.css" />
+    <Content Include="src\bj-datetimepicker\jquery.datetimepicker.js" />
+    <Content Include="src\bj-fontawesome\css\font-awesome.css" />
+    <Content Include="src\bj-fontawesome\css\font-awesome.min.css" />
+    <Content Include="src\bj-fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="src\clipboard.js" />
+    <Content Include="src\datetimepicker-zui\datetimepicker-readme.txt" />
+    <Content Include="src\datetimepicker-zui\datetimepicker.css" />
+    <Content Include="src\datetimepicker-zui\datetimepicker.js" />
+    <Content Include="src\datetimepicker-zui\datetimepicker.min.css" />
+    <Content Include="src\datetimepicker-zui\datetimepicker.min.js" />
+    <Content Include="src\hover-min.css" />
+    <Content Include="src\jquery-1.11.1.js" />
+    <Content Include="src\jquery.hotkeys.js" />
+    <Content Include="src\jquery1.11.2.js" />
+    <Content Include="src\jquery3.1.0-jQuery.js" />
+    <Content Include="src\moment-with-locales.js" />
+    <Content Include="src\moment.js" />
+    <Content Include="Views\realtime版本1.html" />
+    <Content Include="Views\realtime版本2.html" />
+    <Content Include="Views\realtime版本3.html" />
+    <Content Include="Views\tablechart.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -305,12 +398,33 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="src\bj-fontawesome\css\font-awesome.css.map" />
+    <Content Include="src\bj-fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="src\bj-fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="src\bj-fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="src\bj-fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="src\bj-fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="Views\Home\RealTime.cshtml" />
+    <Content Include="Views\Home\HistoryData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="css\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZhaoQi.Web.Core.Models\ZhaoQi.Web.Core.Models.csproj">
+      <Project>{b04366fc-453d-47a3-b3cc-e271319cea9f}</Project>
+      <Name>ZhaoQi.Web.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZhaoQi.Web.Core\ZhaoQi.Web.Core.csproj">
+      <Project>{ac84c7da-f042-40c6-b512-35542deb825d}</Project>
+      <Name>ZhaoQi.Web.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

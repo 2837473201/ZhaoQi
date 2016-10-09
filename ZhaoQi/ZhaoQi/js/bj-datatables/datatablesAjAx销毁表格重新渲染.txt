@@ -1,0 +1,32 @@
+dt=$('#example').dataTable({此处省略一万字}）；
+ if (a == 0) {
+            console.log(dt);
+            dt.fnDestroy();
+            $('#example').empty();
+        }
+
+
+
+
+
+
+//下面是实例
+ $.get("../api/DataTablesdf", { "strStart": "2016-09-06", "strEnd": "2016-09-07", "strVillage": "裴塘" }, function (d) {
+            dtData = d;
+            console.log(dtData);
+            initDataTables();
+        });//get
+
+ $.get("../api/DataTablesdf", { "strStart": $("#startTime").val(), "strEnd": $("#endTime").val(), "strVillage": $("#villageSelect").find("option:selected").text() }, function (d) {
+                dtData = d;
+                console.log(dtData);
+                initDataTables(0);
+            });//get
+
+
+ function initDataTables(a) {
+        if (a == 0) {
+            console.log(dt);
+            dt.fnDestroy();
+            $('#example').empty();
+        }

@@ -1,0 +1,123 @@
+#dt-narrow {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+}
+
+table.dataTable.compact tbody th,
+table.dataTable.compact tbody td {
+	padding: 3px;
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+	padding: 3px;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+	bottom: 3px;
+	right: 3px;
+}
+
+
+/*#dt-narrow_filter{
+	display:none;
+}*/
+
+
+/*#dt-narrow_length {
+	display:none;
+}*/
+
+#dt-narrow_paginate {
+	float: right;
+}
+
+#dt-narrow_length,
+#dt-narrow_info,
+#dt-narrow_filter {
+	float: left;
+	margin-left: 20px;
+	margin-top: 2px;
+}
+
+#dt-narrow_info {
+	margin-left: 5px;
+}
+
+.input-icon>input {
+	padding-left: 24px;
+	padding-right: 6px;
+}
+
+.input-icon>.bj-icon {
+	padding: 0 3px;
+	z-index: 2;
+	position: absolute;
+	top: 1px;
+	bottom: 1px;
+	left: 3px;
+	line-height: 30px;
+	display: inline-block;
+	color: #909090;
+	font-size: 16px;
+}
+
+.blue {
+	color: #478FCA!important;
+}
+
+.bj-icon {
+	text-align: center;
+}
+
+span.input-icon {
+	display: inline-block
+}
+
+.input-icon {
+	position: relative;
+}
+
+select.form-control {
+	max-width: 202px;
+}
+
+.bj-btn-outline {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid rgba(76, 205, 19, 1);
+	border-radius: 4px;
+	color: #33CC0B;
+	background-color: #fff;
+	border-color: #33CC0B;
+	outline: none;
+}
+
+.bj-btn-outline:hover {
+	color: black;
+}

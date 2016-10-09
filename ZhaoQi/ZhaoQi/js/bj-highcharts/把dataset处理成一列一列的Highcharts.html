@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			var arr111 = [{
+				aa: "wei",
+				bb: "1"
+			}, {
+				aa: "bin",
+				bb: "2"
+			}];
+			arr111=arrobjTocolumns(arr111);
+
+			function arrobjTocolumns(arr) { //数组中是obj的对象处理成一列一列的；
+				Object.prototype.clone = function() {
+					var objClone;
+					if(this.constructor == Object) objClone = new this.constructor();
+					else objClone = new this.constructor(this.valueOf());
+					for(var key in this) {
+						if(objClone[key] != this[key]) {
+							if(typeof(this[key]) == 'object') {
+								objClone[key] = this[key].Clone();
+							} else {
+								objClone[key] = this[key];
+							}
+						}
+					}
+					objClone.toString = this.toString;
+					objClone.valueOf = this.valueOf;
+					return objClone;
+				}
+				var seriesArr = [];
+				var seriesObj = {};
+				var arr2 = [];
+				for(var i = 0; i < arr.length; i++) {
+					var z = 0;
+					for(var j in arr[i]) {
+						if(typeof arr[i][j] == "function") {
+							continue;
+						};
+						var key = j;
+						if(arr2[z] == undefined) {
+							arr2[z] = arr[i][j];
+						} else {
+							arr2[z] = arr2[z] + "," + arr[i][j];
+						}
+						z++;
+					}
+				}
+				var m = 0;
+				for(var k in arr[0]) {
+					if(typeof arr[0][k] == "function") {
+						continue;
+					}
+					seriesObj["name"] = k;
+					seriesObj["data"] = arr2[m];
+					seriesArr[m] = seriesObj.clone();
+					m++;
+				}
+				for(var m=0;m<seriesArr.length;m++){//#region
+					for(var n in seriesArr[m]){
+						if(n=="data"){
+							seriesArr[m][n]=seriesArr[m][n].split(",");
+						}
+					}
+				}
+				return seriesArr;
+			}
+			console.log(arr111);
+		</script>
+	</body>
+
+</html>

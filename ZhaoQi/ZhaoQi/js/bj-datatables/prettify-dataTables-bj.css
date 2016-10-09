@@ -1,0 +1,20 @@
+table.dataTable thead .sorting:after {
+    opacity: 0.2;
+    content: "\e119"
+}
+
+table.dataTable thead .sorting_asc:after {
+    content: "\e093";
+    color:blue;
+}
+
+table.dataTable thead .sorting_desc:after {
+    content: "\e094";
+     color:blue;
+}
+.dt-buttons,.toolbar,.dataTables_filter{
+	display:inline-block;
+}
+.toolbar,.dataTables_filter{
+	margin-left:5rem;
+}

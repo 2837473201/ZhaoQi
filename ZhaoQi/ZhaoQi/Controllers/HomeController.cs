@@ -28,5 +28,16 @@ namespace ZhaoQi.Controllers
 
             return View();
         }
+
+
+        public ActionResult RealTime()
+        {
+            return View();
+        }
+
+        public ActionResult HistoryData()
+        {
+            return View();
+        }
     }
 }

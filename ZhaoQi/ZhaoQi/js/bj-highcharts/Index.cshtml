@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "分布页";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+    
+   
+    
+}
+
+
+@section FootScript{
+   <script type="text/javascript" src="~/js/bj-jquery/moment-with-locales.js"></script>
+<script type="text/javascript" src="~/js/bj-jquery/moment.js"></script>
+<link rel="stylesheet" href="~/js/bj-bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="~/js/bj-bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/js/bj-datatables/jquery.dataTables.min.js"></script>
+
+<link rel="stylesheet" href="~/js/bj-datatables/dataTables.bootstrap.min.css" />
+<script type="text/javascript" src="~/js/bj-datatables/dataTables.bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="~/js/bj-datatables/buttons.dataTables.min.css" />
+<script type="text/javascript" src="~/js/bj-datatables/dataTables.buttons.min.js"></script>
+
+<script type="text/javascript" src="~/js/bj-datatables/jszip.min.js"></script>
+<script type="text/javascript" src="~/js/bj-datatables/buttons.html5.js"></script>
+<script type="text/javascript" src="~/js/bj-datatables/buttons.flash.js"></script>
+
+
+<script type="text/javascript" src="~/js/bj-datatables-js/datatables-bb.js"></script>
+<link rel="stylesheet" href="~/js/bj-datetimepicker/jquery.datetimepicker.css" />
+<script type="text/javascript" src="~/js/bj-datetimepicker/jquery.datetimepicker.js"></script>
+<link rel="stylesheet" href="~/js/bj-datatables/prettify-dataTables-bj.css" />
+
+<script type="text/javascript" src="~/js/bj-highcharts/highcharts.js"></script>
+<script type="text/javascript" src="~/js/bj-highcharts/line-main-hchart.js"></script>
+}
+<style>
+    .input-group>.btn {
+    padding-left:10px;
+}
+    table.dataTable thead .sorting:after {
+    opacity: 0.2;
+    content: "\f07d" !important
+}
+
+table.dataTable thead .sorting_asc:after {
+    content: "\f062" !important;
+    top:8px !important;
+    color:blue;
+}
+
+table.dataTable thead .sorting_desc:after {
+    content: "\f063" !important;
+    top:8px !important;
+     color:blue;
+}
+.dt-buttons,.toolbar,.dataTables_filter{
+	display:inline-block;
+}
+.toolbar,.dataTables_filter{
+	margin-left:5rem;
+}
+.navbar{
+    margin-bottom:0 !important;
+}
+@@media (max-width:767px){
+    .dt-buttons{
+    display:none;
+    }
+    }
+
+.btn {
+    text-indent:0.2em;
+    letter-spacing:0.2em;
+}
+.btn:focus{
+    border:1px solid transparent;
+}
+</style>
+<script>
+    (function ($) {
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    })(jQuery);
+    var xx = $.getUrlParam('menuId');
+</script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="form-inline">
+            <div class="form-group">
+                <select class="form-control" id="villageSelect" data-toggle="tooltip" data-placement="top" title="请选择一个村庄">
+                    <option value="AL">裴塘</option>
+                    <option value="AK">李家窑</option>
+                    <option value="AZ">蒋庄</option>
+                    <option value="AL">裴塘</option>
+                    <option value="AK">李家窑</option>
+                    <option value="AZ">蒋庄</option>
+                    <option value="WI">袁寨</option>
+                    <option value="WY">和庄</option>
+                    <option value="AZ">庄王村</option>
+                    <option value="AL">夏庄村</option>
+                    <option value="AK">颍北村</option>
+                    <option value="AZ">裴塘-水源测控</option>
+                    <option value="WI">信息化中心-气象站</option>
+                </select>
+            </div>
+            &nbsp;&nbsp;
+            <div class="form-group">
+                <label>起始时间:</label>
+                <span class="input-icon">
+                    <input id="startTime" type="text">
+                    <i class="ace-icon fa fa-calendar blue"></i>
+                </span>
+            </div>
+            <div class="form-group">
+                <label>结束时间:</label>
+                <span class="input-icon">
+                    <input id="endTime" type="text">
+                    <i class="ace-icon fa fa-calendar blue"></i>
+                </span>
+            </div>
+            <div class="form-group">
+                <button id="dtQueryBtn" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Enter">查询</button>
+            </div>
+        </div>
+       
+        @*<div class="col-xs-12 col-sm-6 col-md-2">
+            <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example" href="#"><span><span class="glyphicon glyphicon-export" style="color:#3AF"></span>&nbsp;<span style="color:blue;">Excel</span></span></a><a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="example" href="#"><span><span class="glyphicon glyphicon-export" style="color:#3AF"></span>&nbsp;<span style="color:blue;">CSV</span></span></a>
+        </div>*@
+        @*<div class="col-xs-12 col-sm-6 col-md-2">
+            <div id="example_filter" class="dataTables_filter"><label>搜索:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example"></label>
+            </div>
+        </div>*@
+        <div class="col-xs-12 col-sm-6 col-md-3">
+           &nbsp;
+        </div>
+    </div>
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%"></table>
+    <div class="">
+       @*<p>
+           <span id="min0"></span>
+           <span id="min1"></span>
+           <span id="min2"></span>
+           <span id="min3"></span>
+           <span id="min4"></span>
+           <span id="min5"></span>
+       </p>
+        <p>
+            <span id="max0"></span>
+            <span id="max1"></span>
+            <span id="max2"></span>
+            <span id="max3"></span>
+            <span id="max4"></span>
+            <span id="max5"></span>
+        </p>
+        <p>
+            <span id="avg0"></span>
+            <span id="avg1"></span>
+            <span id="avg2"></span>
+            <span id="avg3"></span>
+            <span id="avg4"></span>
+            <span id="avg5"></span>
+            <span id="avg6"></span>
+        </p>*@
+    </div>
+    <div id="container" style="min-width:400px;height:400px"></div>
+</div>
+
+
+
+
+

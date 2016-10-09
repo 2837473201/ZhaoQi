@@ -1,0 +1,11 @@
+#svg1{
+	display:block;
+	max-width:100%;
+	height:auto;
+}
+#svg1{
+	/*transform-origin:top left;
+	transform: matrix(0,-1,1,0,0,960);*/
+	/*transform:rotate(30deg);*/
+}
+
